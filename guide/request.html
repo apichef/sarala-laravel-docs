@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Using Request | Sarala Laravel</title>
+    <meta name="description" content="Laravel RESTful API Companion">
+    <link rel="icon" href="/sarala-laravel-docs/images/sarala-logo.png">
+    
+    <link rel="preload" href="/sarala-laravel-docs/assets/css/0.styles.804bdd94.css" as="style"><link rel="preload" href="/sarala-laravel-docs/assets/js/app.05d19c80.js" as="script"><link rel="preload" href="/sarala-laravel-docs/assets/js/2.ecb1f24e.js" as="script"><link rel="preload" href="/sarala-laravel-docs/assets/js/16.73f33433.js" as="script"><link rel="prefetch" href="/sarala-laravel-docs/assets/js/10.8250a0ef.js"><link rel="prefetch" href="/sarala-laravel-docs/assets/js/11.0878e5e5.js"><link rel="prefetch" href="/sarala-laravel-docs/assets/js/12.7968b0d6.js"><link rel="prefetch" href="/sarala-laravel-docs/assets/js/13.df0684e7.js"><link rel="prefetch" href="/sarala-laravel-docs/assets/js/14.d1cfbfe0.js"><link rel="prefetch" href="/sarala-laravel-docs/assets/js/15.8086e93a.js"><link rel="prefetch" href="/sarala-laravel-docs/assets/js/17.c24b70ab.js"><link rel="prefetch" href="/sarala-laravel-docs/assets/js/18.c48da564.js"><link rel="prefetch" href="/sarala-laravel-docs/assets/js/3.0beb90a4.js"><link rel="prefetch" href="/sarala-laravel-docs/assets/js/4.fdff7a0b.js"><link rel="prefetch" href="/sarala-laravel-docs/assets/js/5.81736c2a.js"><link rel="prefetch" href="/sarala-laravel-docs/assets/js/6.cd2fd081.js"><link rel="prefetch" href="/sarala-laravel-docs/assets/js/7.a0a9dbca.js"><link rel="prefetch" href="/sarala-laravel-docs/assets/js/8.d89adbf0.js"><link rel="prefetch" href="/sarala-laravel-docs/assets/js/9.f5b84521.js">
+    <link rel="stylesheet" href="/sarala-laravel-docs/assets/css/0.styles.804bdd94.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/sarala-laravel-docs/" class="home-link router-link-active"><img src="/sarala-laravel-docs/images/sarala-logo.png" alt="Sarala Laravel" class="logo"> <span class="site-name can-hide">Sarala Laravel</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/sarala-laravel-docs/guide/" class="nav-link router-link-active">API</a></div><div class="nav-item"><a href="https://packagist.org/packages/sarala-io/sarala" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Packagist
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://milroy.me" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Creator
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <a href="https://github.com/sarala-io/sarala-laravel" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/sarala-laravel-docs/guide/" class="nav-link router-link-active">API</a></div><div class="nav-item"><a href="https://packagist.org/packages/sarala-io/sarala" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Packagist
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://milroy.me" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Creator
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <a href="https://github.com/sarala-io/sarala-laravel" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/sarala-laravel-docs/guide/" class="sidebar-link">Introduction</a></li><li><a href="/sarala-laravel-docs/guide/installation.html" class="sidebar-link">Installation</a></li><li><a href="/sarala-laravel-docs/guide/middleware.html" class="sidebar-link">Middleware</a></li><li><a href="/sarala-laravel-docs/guide/request.html" class="active sidebar-link">Request</a></li><li><a href="/sarala-laravel-docs/guide/query-builder.html" class="sidebar-link">Query Builder</a></li><li><a href="/sarala-laravel-docs/guide/include-helpers.html" class="sidebar-link">Include Helpers</a></li><li><a href="/sarala-laravel-docs/guide/query-param-bag.html" class="sidebar-link">QueryParamBag</a></li><li><a href="/sarala-laravel-docs/guide/controller.html" class="sidebar-link">Controller</a></li><li><a href="/sarala-laravel-docs/guide/transformer.html" class="sidebar-link">Transformer</a></li><li><a href="/sarala-laravel-docs/guide/links.html" class="sidebar-link">Links</a></li><li><a href="/sarala-laravel-docs/guide/link.html" class="sidebar-link">Link</a></li><li><a href="/sarala-laravel-docs/guide/exception.html" class="sidebar-link">Exception</a></li></ul> </div> <div class="page"> <div class="content default"><h3 id="using-request"><a href="#using-request" aria-hidden="true" class="header-anchor">#</a> Using Request</h3> <p>This package comes with <code>ApiRequestAbstract</code> class. You <strong>MUST</strong> extend when you are implementing request classes. Not doing so means that you will be unable to take advantage of this package.</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">use</span> <span class="token package">Sarala<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Requests<span class="token punctuation">\</span>ApiRequestAbstract</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">PostItemRequest</span> <span class="token keyword">extends</span> <span class="token class-name">ApiRequestAbstract</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="sanitize-includes"><a href="#sanitize-includes" aria-hidden="true" class="header-anchor">#</a> Sanitize includes</h3> <p>You must implement <code>allowedIncludes</code> method on the request class to sanitize includes.</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">use</span> <span class="token package">Sarala<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Requests<span class="token punctuation">\</span>ApiRequestAbstract</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">PostItemRequest</span> <span class="token keyword">extends</span> <span class="token class-name">ApiRequestAbstract</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+    
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">allowedIncludes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">array</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'author'</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'comments.author'</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'tags'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token comment">// ..</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="ask-for-querybuilder-from-request-optional"><a href="#ask-for-querybuilder-from-request-optional" aria-hidden="true" class="header-anchor">#</a> Ask for <a href="/sarala-laravel-docs/guide/query-builder.html">QueryBuilder</a> from request. (Optional)</h3> <p>You may implement <code>builder</code> method on the request class. And it should return a child of QueryBuilderAbstract.</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">use</span> <span class="token package">Sarala<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Requests<span class="token punctuation">\</span>ApiRequestAbstract</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">PostItemRequest</span> <span class="token keyword">extends</span> <span class="token class-name">ApiRequestAbstract</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+    
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> QueryBuilderAbstract
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">PostShowQuery</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token comment">// ..</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Then on the controller you can do <a href="/sarala-laravel-docs/guide/controller.html#response">this</a>.</p></div> <div class="page-edit"><div class="edit-link"><a href="https://github.com/sarala-io/sarala-laravel-docs/edit/master/docs/guide/request.md" target="_blank" rel="noopener noreferrer">Help us improve this page!</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">1/19/2019, 6:08:09 PM</span></div></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/sarala-laravel-docs/guide/middleware.html" class="prev">
+          Middleware
+        </a></span> <span class="next"><a href="/sarala-laravel-docs/guide/query-builder.html">
+          Query Builder
+        </a>
+        →
+      </span></p></div> </div></div><div class="global-ui"></div></div>
+    <script src="/sarala-laravel-docs/assets/js/app.05d19c80.js" defer></script><script src="/sarala-laravel-docs/assets/js/2.ecb1f24e.js" defer></script><script src="/sarala-laravel-docs/assets/js/16.73f33433.js" defer></script>
+  </body>
+</html>
